@@ -15,25 +15,21 @@ class MainActivity : AppCompatActivity() {
 
         // manage buton events
         binding.btnRaph.setOnClickListener {
-            showTurtle("raph")
+            showTurtle("raphael")
         }
         binding.btnLeo.setOnClickListener {
-            showTurtle("leo")
+            showTurtle("leonardo")
         }
         binding.btnDon.setOnClickListener {
             showTurtle("donatello")
         }
         binding.btnMike.setOnClickListener {
-            showTurtle("mike")
+            showTurtle("michelangelo")
         }
     }
 
     fun showTurtle(name: String) {
-        when (name) {
-            "leo" -> binding.ivTurtle.setImageResource(R.drawable.leonardo)
-            "raph" -> binding.ivTurtle.setImageResource(R.drawable.raphael)
-            "donatello" -> binding.ivTurtle.setImageResource(R.drawable.donatello)
-            else -> binding.ivTurtle.setImageResource(R.drawable.michelangelo)
-        }
+        val id = resources.getIdentifier(name, "drawable", packageName)
+        binding.ivTurtle.setImageResource(id)
     }
 }
