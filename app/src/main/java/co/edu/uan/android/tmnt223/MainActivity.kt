@@ -2,6 +2,7 @@ package co.edu.uan.android.tmnt223
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 import co.edu.uan.android.tmnt223.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -25,6 +26,11 @@ class MainActivity : AppCompatActivity() {
         }
         binding.btnMike.setOnClickListener {
             showTurtle("michelangelo")
+        }
+        binding.listTurtles.setOnItemClickListener { parent, view, position, id ->
+            println("parent: $parent,\nview: $view,\nposition: $position,\nid: $id")
+            val tv = view as TextView
+            showTurtle(tv.text.toString().lowercase())
         }
     }
 

@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">TMNT223</string>
+    <string name="app_name">TMNT</string>
+    <string-array name="tmnt_names">
+        <item>Donatello</item>
+        <item>Raphael</item>
+    </string-array>
 </resources>
