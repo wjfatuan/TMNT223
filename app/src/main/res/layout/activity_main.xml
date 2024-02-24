@@ -6,41 +6,46 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btnLeo"
+    <RadioGroup
+        android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Leo"
-        app:layout_constraintEnd_toStartOf="@+id/btnRaph"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnRaph"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Raph"
-        app:layout_constraintEnd_toStartOf="@id/btnDon"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btnLeo"/>
-
-    <Button
-        android:id="@+id/btnDon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Donatello"
-        app:layout_constraintEnd_toStartOf="@id/btnMike"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btnRaph"/>
-
-    <Button
-        android:id="@+id/btnMike"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mike"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btnDon"/>
+        android:orientation="horizontal"
+        >
+        <RadioButton
+            android:id="@+id/btnLeo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Leo"
+            />
+
+        <RadioButton
+            android:id="@+id/btnRaph"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Raph"
+            />
+
+        <RadioButton
+            android:id="@+id/btnDon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Donatello"
+            />
+
+        <RadioButton
+            android:id="@+id/btnMike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mike"
+            />
+
+
+    </RadioGroup>
+
 
     <ImageView
         android:id="@+id/ivTurtle"
@@ -50,5 +55,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLeo" />
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
