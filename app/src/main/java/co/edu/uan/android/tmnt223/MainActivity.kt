@@ -2,12 +2,15 @@ package co.edu.uan.android.tmnt223
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.TextView
 import co.edu.uan.android.tmnt223.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
+
+    val turtleNames = arrayListOf<String>("Michelangelo", "Leonardo")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +35,9 @@ class MainActivity : AppCompatActivity() {
             val tv = view as TextView
             showTurtle(tv.text.toString().lowercase())
         }
+
+        val adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, turtleNames)
+        binding.listTurtles.adapter = adapter
     }
 
     fun showTurtle(name: String) {
