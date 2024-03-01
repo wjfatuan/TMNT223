@@ -32,11 +32,10 @@ class MainActivity : AppCompatActivity() {
         }
         binding.listTurtles.setOnItemClickListener { parent, view, position, id ->
             println("parent: $parent,\nview: $view,\nposition: $position,\nid: $id")
-            val tv = view as TextView
-            showTurtle(tv.text.toString().lowercase())
+            showTurtle(turtleNames[position].lowercase())
         }
 
-        val adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, turtleNames)
+        val adapter = TurtlesAdapter(this, R.layout.list_turtles, turtleNames)
         binding.listTurtles.adapter = adapter
     }
 
