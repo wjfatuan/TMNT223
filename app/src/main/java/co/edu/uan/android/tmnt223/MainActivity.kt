@@ -9,6 +9,7 @@ import co.edu.uan.android.tmnt223.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
+    lateinit var adapter: TurtlesAdapter
 
     val turtleNames = arrayListOf<String>("Michelangelo", "Leonardo")
 
@@ -20,27 +21,36 @@ class MainActivity : AppCompatActivity() {
         // manage buton events
         binding.btnRaph.setOnClickListener {
             showTurtle("raphael")
+            addTurtle("raphael")
         }
         binding.btnLeo.setOnClickListener {
             showTurtle("leonardo")
+            addTurtle("leonardo")
         }
         binding.btnDon.setOnClickListener {
             showTurtle("donatello")
+            addTurtle("donatello")
         }
         binding.btnMike.setOnClickListener {
             showTurtle("michelangelo")
+            addTurtle("michelangelo")
         }
         binding.listTurtles.setOnItemClickListener { parent, view, position, id ->
             println("parent: $parent,\nview: $view,\nposition: $position,\nid: $id")
             showTurtle(turtleNames[position].lowercase())
         }
 
-        val adapter = TurtlesAdapter(this, R.layout.list_turtles, turtleNames)
+        adapter = TurtlesAdapter(this, R.layout.list_turtles, turtleNames)
         binding.listTurtles.adapter = adapter
     }
 
     fun showTurtle(name: String) {
         val id = resources.getIdentifier(name, "drawable", packageName)
         binding.ivTurtle.setImageResource(id)
+    }
+
+    fun addTurtle(name: String) {
+        turtleNames.add(name)
+        adapter.notifyDataSetChanged()
     }
 }
