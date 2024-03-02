@@ -1,5 +1,7 @@
 package co.edu.uan.android.tmnt223
 
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -20,34 +22,29 @@ class MainActivity : AppCompatActivity() {
 
         // manage buton events
         binding.btnRaph.setOnClickListener {
-            showTurtle("raphael")
             addTurtle("raphael")
         }
         binding.btnLeo.setOnClickListener {
-            showTurtle("leonardo")
             addTurtle("leonardo")
         }
         binding.btnDon.setOnClickListener {
-            showTurtle("donatello")
             addTurtle("donatello")
         }
         binding.btnMike.setOnClickListener {
-            showTurtle("michelangelo")
             addTurtle("michelangelo")
         }
         binding.listTurtles.setOnItemClickListener { parent, view, position, id ->
             println("parent: $parent,\nview: $view,\nposition: $position,\nid: $id")
-            showTurtle(turtleNames[position].lowercase())
+            // ir a la actividad de informacion
+            val i = Intent(this, MainActivity::class.java)
+            i.putExtra("PARAM_TURTLE_NAME", turtleNames[position].lowercase())
+            startActivity(i)
         }
 
         adapter = TurtlesAdapter(this, R.layout.list_turtles, turtleNames)
         binding.listTurtles.adapter = adapter
     }
 
-    fun showTurtle(name: String) {
-        val id = resources.getIdentifier(name, "drawable", packageName)
-        binding.ivTurtle.setImageResource(id)
-    }
 
     fun addTurtle(name: String) {
         turtleNames.add(name)
